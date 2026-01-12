@@ -205,14 +205,15 @@ def run(binary=None):
                 print(fail.safe_substitute(text=f"Unknown type '{args.exploit_type}'"))
                 print(info.safe_substitute(text=f"Valid types: {', '.join(EXPLOIT_TYPES)}"))
                 return
-            binaries = get_binaries_with_type(args.exploit_type)
-            if binaries:
-                print(info.safe_substitute(text=f"Binaries with '{args.exploit_type}' ({len(binaries)}):"))
-                print()
-                print_binary_list(binaries)
-            else:
-                print(fail.safe_substitute(text=f"No binaries with '{args.exploit_type}'"))
-            return
+            if not args.binary:
+                binaries = get_binaries_with_type(args.exploit_type)
+                if binaries:
+                    print(info.safe_substitute(text=f"Binaries with '{args.exploit_type}' ({len(binaries)}):"))
+                    print()
+                    print_binary_list(binaries)
+                else:
+                    print(fail.safe_substitute(text=f"No binaries with '{args.exploit_type}'"))
+                return
 
         binary = args.binary
 
