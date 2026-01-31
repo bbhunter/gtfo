@@ -1,11 +1,41 @@
 {
   "functions": {
+    "file-read": [
+      {
+        "code": "uv run cat /path/to/file-input\n",
+        "contexts": {
+          "sudo": {},
+          "suid": {},
+          "unprivileged": {}
+        }
+      }
+    ],
+    "file-write": [
+      {
+        "code": "uv run sh -c 'echo data > /path/to/file-output'\n",
+        "contexts": {
+          "sudo": {},
+          "suid": {},
+          "unprivileged": {}
+        }
+      }
+    ],
+    "inherit": [
+      {
+        "code": "uv run CMD\n",
+        "contexts": {
+          "unprivileged": {}
+        },
+        "from": "pip"
+      }
+    ],
     "shell": [
       {
-        "code": "uv run /bin/sh",
+        "code": "uv run /bin/sh\n",
         "contexts": {
-          "sudo": null,
-          "unprivileged": null
+          "sudo": {},
+          "suid": {},
+          "unprivileged": {}
         }
       }
     ]
